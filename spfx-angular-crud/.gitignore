@@ -1,34 +1,59 @@
-# Logs
-logs
-*.log
+# =========================
+# Node / Package managers
+# =========================
+node_modules/
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# Dependency directories
-node_modules
-
-# Build generated files
-dist
-lib
-release
-solution
-temp
+# =========================
+# Build outputs
+# =========================
+dist/
+lib/
+release/
+solution/
+temp/
+coverage/
 *.sppkg
 .heft
 
-# Coverage directory used by tools like istanbul
-coverage
+# =========================
+# Angular
+# =========================
+.angular/
+.cache/
 
-# OSX
-.DS_Store
-
-# Visual Studio files
-.ntvs_analysis.dat
-.vs
-bin
-obj
-
-# Resx Generated Code
+# =========================
+# SPFx generated
+# =========================
 *.resx.ts
-
-# Styles Generated Code
 *.scss.ts
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Visual Studio / VS Code
+# =========================
+.vs/
+bin/
+obj/
+.ntvs_analysis.dat
+
+# =========================
+# Environment files
+# =========================
+.env
+.env.local
+.env.*.local

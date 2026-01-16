@@ -93,7 +93,7 @@ export class AppComponent implements OnInit {
 
       this.items = response.value;
       console.log('Items loaded:', this.items);
-    } catch (err: any) {
+    } catch (err) {
       console.error('Error loading items:', err);
       this.error = `Error loading items: ${err.message}`;
     }
