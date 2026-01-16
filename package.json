@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "build": "gulp bundle",
+    "clean": "gulp clean",
+    "test": "gulp test",
+    "serve": "gulp serve --nobrowser",
+    "serve:fast": "gulp serve --nobrowser --locale=en-us",
+    "ship": "gulp bundle --ship && gulp package-solution --ship",
+    "watch": "gulp bundle --custom-serve --locale=en-us"
+  },
+  "dependencies": {
+    "@angular/common": "^18.2.14",
+    "@angular/compiler": "^18.2.14",
+    "@angular/core": "^18.2.14",
+    "@angular/platform-browser": "^18.2.14",
+    "@angular/platform-browser-dynamic": "^18.2.14",
+    "rxjs": "^7.8.2",
+    "zone.js": "^0.11.8"
+  },
+  "devDependencies": {
+    "@angular/compiler-cli": "^18.2.14"
+  }
+}

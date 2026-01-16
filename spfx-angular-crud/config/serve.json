@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/spfx-serve.schema.json",
+  "port": 4321,
+  "https": true,
+  "serveConfigurations": {
+    "default": {
+      "pageUrl": "https://{tenant}.sharepoint.com/sites/{site}/_layouts/workbench.aspx"
+    },
+    "angularCrud": {
+      "pageUrl": "https://{tenant}.sharepoint.com/sites/{site}/_layouts/workbench.aspx"
+    }
+  }
+}

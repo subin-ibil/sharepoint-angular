@@ -1,0 +1,50 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "spfx-angular-crud-client-side-solution",
+    "id": "f1a9c5ed-4f0f-4e8f-b1e5-3e8f4c5d6e7f",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "Your Name",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.0.0.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Angular CRUD with Microsoft Graph"
+      },
+      "longDescription": {
+        "default": "SPFx WebPart with Angular 15 performing CRUD operations on SharePoint Lists via Microsoft Graph API"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "spfx-angular-crud-client-side-solution Feature",
+        "description": "The feature that activates elements of the spfx-angular-crud-client-side-solution solution.",
+        "id": "a1b2c3d4-e5f6-4a5b-8c9d-0e1f2a3b4c5d",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/spfx-angular-crud.sppkg"
+  },
+  "webApiPermissionRequests": [
+    {
+      "resource": "Microsoft Graph",
+      "scope": "Sites.Read.All"
+    },
+    {
+      "resource": "Microsoft Graph",
+      "scope": "Sites.ReadWrite.All"
+    }
+  ]
+}
