@@ -1,57 +1,68 @@
 import { Component, OnInit } from '@angular/core';
 import { employeeTemplate } from './employee.template';
 import { employeeStyles } from './employee.styles';
-
-interface Employee {
-  id: number;
-  name: string;
-  department: string;
-  email: string;
-}
+import { Employee } from '../../../../services/employee.service';
+import { employeeServiceInstance } from '../../../../services/employee-instance';
 
 @Component({
   selector: 'app-employee',
-  template: employeeTemplate, // Use the imported template
-  styles: [employeeStyles], // Use the imported styles
+  template: employeeTemplate,
+  styles: [employeeStyles],
 })
 export class EmployeeComponent implements OnInit {
   employees: Employee[] = [];
+  loading: boolean = false;
+  error: string = '';
   newEmployee: Employee = {
-    id: 0,
-    name: '',
-    department: '',
-    email: '',
+    Id: 0,
+    Title: '',
+    Department: '',
+    Email: '',
   };
+
+  // Remove the constructor completely!
 
   ngOnInit(): void {
     this.loadEmployees();
   }
 
   loadEmployees(): void {
-    this.employees = [
-      { id: 1, name: 'John Doe', department: 'IT', email: 'john@example.com' },
-      { id: 2, name: 'Jane Smith', department: 'HR', email: 'jane@example.com' },
-    ];
+    this.loading = true;
+    this.error = '';
+
+    // Use employeeServiceInstance instead of this.employeeService
+    employeeServiceInstance.getEmployees().subscribe({
+      next: (data: Employee[]) => {
+        this.employees = data;
+        this.loading = false;
+        console.log('Employees loaded from SharePoint:', data);
+      },
+      error: (err) => {
+        this.error = 'Failed to load employees from SharePoint. Please check if the EmployeeList exists.';
+        this.loading = false;
+        console.error('Error loading employees:', err);
+      },
+    });
   }
 
   addEmployee(): void {
-    if (this.newEmployee.name && this.newEmployee.department) {
-      this.newEmployee.id = this.employees.length + 1;
+    if (this.newEmployee.Title && this.newEmployee.Department) {
+      this.newEmployee.Id = this.employees.length + 1;
       this.employees.push({ ...this.newEmployee });
       this.resetForm();
     }
   }
 
   deleteEmployee(id: number): void {
-    this.employees = this.employees.filter((emp) => emp.id !== id);
+    this.employees = this.employees.filter((emp) => emp.Id !== id);
   }
 
   resetForm(): void {
     this.newEmployee = {
-      id: 0,
-      name: '',
-      department: '',
-      email: '',
+      Id: 0,
+      Title: '',
+      Department: '',
+      Email: '',
     };
   }
 }

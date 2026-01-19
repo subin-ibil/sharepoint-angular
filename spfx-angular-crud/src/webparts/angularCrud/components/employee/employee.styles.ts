@@ -1,139 +1,214 @@
-// employee.styles.ts
 export const employeeStyles = `
-.employee-container {
-  padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+  .employee-container {
+    padding: 24px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-.employee-container h2 {
-  color: #0078d4;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #0078d4;
-  padding-bottom: 10px;
-}
+  h2 {
+    color: #323130;
+    margin: 0 0 24px 0;
+    font-size: 28px;
+    font-weight: 600;
+    border-bottom: 3px solid #0078d4;
+    padding-bottom: 12px;
+  }
 
-.employee-container h3 {
-  color: #333;
-  margin-bottom: 15px;
-}
+  h3 {
+    color: #605e5c;
+    font-size: 18px;
+    margin: 0 0 16px 0;
+  }
 
-.form-section {
-  background: #f3f2f1;
-  padding: 20px;
-  border-radius: 4px;
-  margin-bottom: 30px;
-}
+  /* Loading Spinner */
+  .loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    color: #605e5c;
+  }
 
-.form-section form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-}
+  .spinner {
+    border: 4px solid #f3f2f1;
+    border-top: 4px solid #0078d4;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+  }
 
-.form-group {
-  flex: 1 1 200px;
-  display: flex;
-  flex-direction: column;
-}
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 
-.form-group label {
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: #323130;
-}
+  /* Error Message */
+  .error-message {
+    padding: 16px 20px;
+    background-color: #fde7e9;
+    color: #a80000;
+    border-left: 4px solid #a80000;
+    border-radius: 4px;
+    margin-bottom: 24px;
+    font-size: 14px;
+  }
 
-.form-group input {
-  padding: 8px 12px;
-  border: 1px solid #8a8886;
-  border-radius: 2px;
-  font-size: 14px;
-}
+  /* Add Employee Form */
+  .add-employee-form {
+    background: #f3f2f1;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 32px;
+  }
 
-.form-group input:focus {
-  outline: none;
-  border-color: #0078d4;
-  box-shadow: 0 0 0 1px #0078d4;
-}
+  .form-group {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
 
-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 2px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  transition: background-color 0.2s;
-}
+  .form-input {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px 12px;
+    border: 1px solid #d1d1d1;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: border-color 0.2s;
+  }
 
-.btn-primary {
-  background-color: #0078d4;
-  color: white;
-}
+  .form-input:focus {
+    outline: none;
+    border-color: #0078d4;
+    box-shadow: 0 0 0 1px #0078d4;
+  }
 
-.btn-primary:hover {
-  background-color: #106ebe;
-}
+  .btn-add {
+    padding: 10px 24px;
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
 
-.btn-secondary {
-  background-color: #edebe9;
-  color: #323130;
-}
+  .btn-add:hover {
+    background-color: #106ebe;
+  }
 
-.btn-secondary:hover {
-  background-color: #e1dfdd;
-}
+  .btn-add:active {
+    background-color: #005a9e;
+  }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+  /* Employee Count */
+  .employee-count {
+    color: #605e5c;
+    font-size: 14px;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
 
-thead {
-  background-color: #0078d4;
-  color: white;
-}
+  /* Table Container */
+  .table-container {
+    overflow-x: auto;
+    margin-top: 24px;
+  }
 
-thead th {
-  padding: 12px;
-  text-align: left;
-  font-weight: 600;
-}
+  .employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+  }
 
-tbody tr {
-  border-bottom: 1px solid #edebe9;
-}
+  .employee-table th {
+    background-color: #0078d4;
+    color: white;
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
 
-tbody tr:hover {
-  background-color: #f3f2f1;
-}
+  .employee-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #edebe9;
+    color: #323130;
+    font-size: 14px;
+  }
 
-tbody td {
-  padding: 12px;
-  color: #323130;
-}
+  .employee-table tbody tr {
+    transition: background-color 0.15s;
+  }
 
-.btn-delete {
-  background-color: #d13438;
-  color: white;
-  padding: 6px 12px;
-  border: none;
-  border-radius: 2px;
-  cursor: pointer;
-  font-size: 13px;
-}
+  .employee-table tbody tr:hover {
+    background-color: #f3f2f1;
+  }
 
-.btn-delete:hover {
-  background-color: #a4262c;
-}
+  .employee-table tbody tr:last-child td {
+    border-bottom: none;
+  }
 
-.no-data {
-  text-align: center;
-  padding: 40px;
-  color: #605e5c;
-  font-style: italic;
-}
+  /* Delete Button */
+  .btn-delete {
+    padding: 6px 16px;
+    background-color: #d13438;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .btn-delete:hover {
+    background-color: #a4262c;
+  }
+
+  .btn-delete:active {
+    background-color: #8a1c20;
+  }
+
+  /* No Data */
+  .no-data {
+    text-align: center;
+    padding: 60px 20px;
+    color: #605e5c;
+    font-style: italic;
+    font-size: 16px;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .form-group {
+      flex-direction: column;
+    }
+
+    .form-input {
+      width: 100%;
+    }
+
+    .employee-table {
+      font-size: 12px;
+    }
+
+    .employee-table th,
+    .employee-table td {
+      padding: 10px 8px;
+    }
+  }
 `;
