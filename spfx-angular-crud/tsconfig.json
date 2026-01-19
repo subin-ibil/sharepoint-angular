@@ -13,15 +13,17 @@
     "outDir": "lib",
     "inlineSources": false,
     "noImplicitAny": true,
-
+    "strictNullChecks": false,
+    "noUnusedLocals": false,
     "typeRoots": [
       "./node_modules/@types",
       "./node_modules/@microsoft"
     ],
-    "types": [
-      "webpack-env"
+  "types": [
+      "webpack-env",
+      "node"  // Add this for require()
     ],
-    "lib": [
+   "lib": [
       "es5",
       "dom",
       "es2015.collection",
@@ -31,5 +33,9 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "lib"
   ]
 }
